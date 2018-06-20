@@ -15,5 +15,5 @@ pipeline:
       - latest
     dockerfile: docker/test/Dockerfile
     when:
-      branch: develop
+      branch: master
       event: push
