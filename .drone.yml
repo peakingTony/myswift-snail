@@ -18,7 +18,7 @@ pipeline:
       branch: develop
       event: push
 
-rancher:
+  rancher:
     image: peloton/drone-rancher
     url: 'http://rancher.ihealthcn.com/v2-beta/projects/1a3707'
     access_key: 5C75CB261869728029C1
