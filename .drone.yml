@@ -3,7 +3,7 @@ clone:
     image: plugins/git
     depth: 1
 pipeline:
-  build_step:
+  build_step_test:
     image: plugins/docker
     username: ihealth
     password: iHealthStrategy2018
@@ -15,5 +15,19 @@ pipeline:
       - latest
     dockerfile: docker/test/Dockerfile
     when:
-      branch: master
+      branch: develop
+      event: push
+
+rancher:
+    image: peloton/drone-rancher
+    url: 'http://rancher.ihealthcn.com/v2-beta/projects/1a3707'
+    access_key: 5C75CB261869728029C1
+    secret_key: xVuKLMhDnLamuw4raChKV4FhakdzVEimkxrVFgyC
+    service: owenTest/SwiftSnailTest
+    docker_image: 'harbor.ihealthcn.com/tonytest/swift-snail:latest'
+    batch_size: 1
+    timeout: 600
+    confirm: true
+    when:
+      branch: develop
       event: push
